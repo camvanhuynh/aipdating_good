@@ -76,8 +76,7 @@ angular.module('aipdatingApp').service('authentication', function($http, $window
       };
     };
     $http.defaults.headers.common['Authorization'] = getToken();
-    console.log(token);
-    console.log(user);
+  
   };
 
   reset();

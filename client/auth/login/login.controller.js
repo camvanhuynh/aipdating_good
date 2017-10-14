@@ -4,7 +4,7 @@ angular.module('aipdatingApp')
     var vm = this;
     vm.formLogin = {};
 
-    vm.login = function () {
+    vm.submit = function () {
       authentication.login(vm.formLogin).then(
         function() {
           $location.path('profile');

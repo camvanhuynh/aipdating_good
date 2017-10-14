@@ -113,7 +113,7 @@ angular.module('aipdatingApp')
         gender: vm.formProfile.gender
       };
 
-      //optimistic adding
+      //attempt to add new profile first
       vm.profiles.push(newProfile);
       //Database call: then call http.post to add into database
       $http.post('/api/profile/', newProfile).then(
@@ -122,7 +122,7 @@ angular.module('aipdatingApp')
           vm.profiles[vm.profiles.length - 1].user = res.data.profile.user._id;
         },
         function(res) {
-          //If fail to update, roll back
+          //If fail to update, then roll back
           vm.profiles.pop();
         }
       );
