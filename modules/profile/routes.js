@@ -26,7 +26,7 @@ const requireAuth = function(checkOwner = false) {
 
             }
             if(!profile) {
-              return res.status(422).send('Profile not exist');
+              return res.status(422).send({error: 'Profile not exist'});
             }
             if(profile.user.toString() !== user._id.toString()) {
               return res.status(403).send({error: "You are not allowed to do"});

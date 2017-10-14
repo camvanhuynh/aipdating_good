@@ -13,7 +13,7 @@ gulp.task('building scripts', function() {
     .pipe(plumber({
       errorHandler: function(err) {
         gutil.beep();
-        console.log(err);
+        //console.log(err);
       }
     }))
     .pipe(sourcemaps.init())
@@ -23,14 +23,14 @@ gulp.task('building scripts', function() {
         .pipe(uglify({
           mangle: true
         }))*/
-    .pipe(gulp.dest('./public'))
+    //.pipe(gulp.dest('./public'))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./public'));
 });
 
 gulp.task('watching changes', function() {
   watch(['./client/**/*.js', '!./client/app.min.js'], function() {
-    gutil.beep();
+    //gutil.beep();
     gulp.start('building scripts');
   });
 });

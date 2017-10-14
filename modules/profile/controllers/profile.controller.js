@@ -10,7 +10,7 @@ exports.list = function(req, res) {
 
 exports.add = function(req, res) {
   console.log("POST is CALLLING");
-  //check isOwner
+  //
   var profile = new Profile({
     nickname: req.body.nickname,
     age: req.body.age,

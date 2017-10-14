@@ -40,11 +40,11 @@ passport.use(new JWT(options, function(payload, done) {
     if (err)
       return done(err, null);
 
-    if (user) {
-      done(null, user);
-    } else {
+    if (!user) {
       return done(null, false);
     }
+
+    return done(null, user);
   });
 }));
 

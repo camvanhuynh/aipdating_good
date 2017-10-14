@@ -31,18 +31,7 @@ angular.module('aipdatingApp', ['ngRoute']).config(function($routeProvider, $loc
   $http.defaults.headers.common['Authorization'] = authentication.getToken();
 
   $rootScope.$on('$routeChangeStart', function(event, to, from) {
-/*
-    if(to.adminAuth === true) {
-      to.resolve = to.resolve || {};
-      to.resolve.auth = function(authentication) {
-        if(authentication.currentUser() != null) {
-          if (authentication.currentUser().role === 'Admin')
-            return true;
-        }
-        throw new AuthorizationError();
-      }
-    }
-*/
+
     if(to.authorize === true) {
       to.resolve = to.resolve || {};
       to.resolve.auth = function(authentication) {
@@ -62,7 +51,7 @@ angular.module('aipdatingApp', ['ngRoute']).config(function($routeProvider, $loc
 
   function AuthenticationError() {
     this.code = 'Authorization Error';
-    this.error = 'User must be authorized to view this content!!';
+    this.error = 'User must be authorized to view this content';
   };
 
   AuthenticationError.prototype.constructor = AuthenticationError;
